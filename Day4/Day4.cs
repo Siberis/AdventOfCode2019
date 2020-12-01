@@ -68,8 +68,8 @@ namespace Day4
                     if (Enumerable.Range(1, 5).All(i => numb[i - 1] <= numb[i]))
                     {
                         bool doubleNumber = Enumerable.Range(1, 5).Where(i => numb[i - 1] == numb[i]).Any(x =>
-                                                       ((x - 2) >= 0 ? numb[x - 2] != numb[x] : true) &&
-                                                       ((x + 1) <= 5 ? numb[x + 1] != numb[x] : true));
+                                                       ((x - 2) < 0 || numb[x - 2] != numb[x]) &&
+                                                       ((x + 1) > 5 || numb[x + 1] != numb[x]));
                         if (doubleNumber)
                         {
                             if (int.Parse(string.Join("", numb)) < end && int.Parse(string.Join("", numb)) > start)
